@@ -1,23 +1,31 @@
 #ifndef MAIN_H
 #define MAIN_H
-
-#include <stdlib.h>
-#include <unistd.h>
+#include <stdio.h>
 #include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+
+/**
+ * struct s_type - Structure
+ * @args: pointer arguments
+ * @func: pointer function
+ */
+typedef struct s_type
+{
+	char *args;
+	int (*func)(va_list);
+} s_type;
 
 int _putchar(char c);
 int _printf(const char *format, ...);
-int print_num(long int n);
-int print_string(char *str);
-int print_binary(unsigned int num);
-int print_unknown_spec(char c);
-int print_odh(char c, unsigned int num);
-int dec_to_oct(unsigned int num);
-int dec_to_hex(char c, unsigned int num);
-int print_S(char *);
-int print_reverse(char *s);
-int print_rot13(char *c);
-int print_pointer(void *p);
+int (*_typefor(const char *argu, int argb))(va_list);
+int p_char(va_list valist);
+int p_string(va_list valist);
+int p_int(va_list valist);
+int count_num(unsigned int n);
+int p_rot13(char *s);
+int print_R(va_list valist);
+int p_binary(va_list valist);
 
 #endif
-
