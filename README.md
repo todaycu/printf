@@ -248,7 +248,7 @@ Conversion specifiers to handle: d, i, u, o, x, X
 ### Authors
 
 *  - *Initial work* - [Tolera Degefa](https://github.com/todaycu)
-* - *Initial work* - [Gifti Lellisa ](https://github.com/)
+* - *Initial work* - [Gifti Lellisa ](https://github.com/GiftyL)
 
 ### Acknowledgments
 
