@@ -1,46 +1,50 @@
-# _printf
-A tiny implementation of the built-in printf funtion. The function `_printf` currently handles the following conversion specifiers:
+# 0x11. C - printf
+Foundations - Low-level programming & Algorithm ― Hatching out
+by Julien Barbier, co-founder at Holberton School.
+Project to be done in teams of 2 people (your team: Gifti Lellisa, Tolera Degefa)
 
-| Symbol | Operation |
-|--|--|
-| `c` | Prints character |
-| `s` | Prints string |
-| `%` | Prints percent sign |
-| `d` | Prints an integer |
-| `i` | Prints an integer |
-| `b` | Prints a binary |
-| `u` | Prints an unsigned integer |
-| `o` | Prints an octal number |
-| `x` | Converts from decimal and prints lowercase hexadecimal |
-| `X` | Converts from decimal and prints upper hexadecimal |
-| `S` | Prints Non printable characters this way: \x, followed by the ASCII code value in hexadecimal |
-| `p` | Prints a pointer (address) in hex |
-| `r` | prints a string in reverse|
-| `R` | Encodes and prints string using `rot13` |
+## Background Context
+* Write your own `printf` function.
 
 ## Getting Started
-Quick start guide of `printf`.
 
-### 1. Install
-Run the following commands:
-```
-$ git clone https://github.com/todaycu/printf.git
-```
+* Allowed editors: vi, vim, emacs.
+* All your files will be compiled on Ubuntu 20.04 LTS.
+* Your programs and functions will be compiled with gcc 4.8.4 using the flags -Wall -Werror -Wextra and -pedantic.
+* All your files should end with a new line.
+* A README.md file, at the root of the folder of the project is mandatory.
+* Your code should use the Betty style. It will be checked using betty-style.pl and betty-doc.pl.
+* You are not allowed to use global variables.
+* No more than 5 functions per file.
+* In the following examples, the main.c files are shown as examples. You can use them to test your functions, but you don’t have to push them to your repo (if you do we won’t take them into account). We will use our own main.c files at compilation. Our main.c files might be different from the one shown in the examples.
+* The prototypes of all your functions should be included in your header file called holberton.h
+* Don’t forget to push your header file.
+* All your header files should be include guarded.
+* Note that we will not provide the\_putchar function for this project
 
-```
-cd printf
-```
+### More Info
+## Authorized functions and macros
+* write (man 2 write)
+* malloc (man 3 malloc)
+* free (man 3 free)
+* va_start (man 3 va_start)
+* va_end (man 3 va_end)
+* va_copy (man 3 va_copy)
+* va_arg (man 3 va_arg)
 
-### 2. main.c
+## Compilation
+* Your code will be compiled this way:
 ```
-touch main.c
+$ gcc -Wall -Werror -Wextra -pedantic *.c
 ```
-
-paste this in `main.c` file to compile it with. Go ahead and try the following:
+* As a consequence, be careful not to push any c file containing a main function in the root directory of your project (you could have a test folder containing all your tests files including main functions)
+Our main files will include your main header file (holberton.h): #include holberton.h
+You might want to look at the gcc flag -Wno-format when testing with your /_printf and the standard printf. Example of test file that you could use:
 ```
+alex@ubuntu:~/c/printf$ cat main.c 
 #include <limits.h>
 #include <stdio.h>
-#include "holberton.h"
+#include "main.h"
 
 /**
  * main - Entry point
@@ -78,22 +82,12 @@ int main(void)
     len2 = printf("Percent:[%%]\n");
     _printf("Len:[%d]\n", len);
     printf("Len:[%d]\n", len2);
-    _printf("Unknown:[%r]\n", "hello);
+    _printf("Unknown:[%r]\n");
     printf("Unknown:[%r]\n");
     return (0);
 }
-```
-
-### 3. Compile
-Use the following command to compile
-```
-$ gcc -Wall -Werror -Wextra -pedantic -Wno-format *.c
-```
-
-### 4. Run the binary
-Going along with our sample code above, you would hopefully see this output:
-```
-$ ./a.out
+alex@ubuntu:~/c/printf$ gcc -Wall -Wextra -Werror -pedantic -std=gnu89 -Wno-format *.c
+alex@ubuntu:~/c/printf$ ./printf
 Let's try to printf a simple sentence.
 Let's try to printf a simple sentence.
 Length:[39, 39]
@@ -116,58 +110,149 @@ Percent:[%]
 Percent:[%]
 Len:[12]
 Len:[12]
-Unknown:[%olleh]
 Unknown:[%r]
-$
+Unknown:[%r]
+alex@ubuntu:~/c/printf$
 ```
+* We strongly encourage you to work all together on a set of tests
+* If the task does not specify what to do with an edge case, do the same as printf
 
-## Environment Information
-| Aspect | Version |
-|--|--|
-| **Language** | C |
-| **Operating System** | Ubuntu 20.04 LTS|
-| **Compiler** | `gcc 4.8.4` |
-| **Style Guidelines** | [`Betty`](https://github.com/holbertonschool/Betty/blob/master/betty-style.pl "betty-style.pl") |
+## Workshop Development
+## Tasks
 
-## Project Requirements
--   Allowed editors:  `vi`,  `vim`,  `emacs`
--   All your files will be compiled on Ubuntu 20.04 LTS
--   Your programs and functions will be compiled with  `gcc 4.8.4`  using the flags  `-Wall`  `-Werror`  `-Wextra`  `and -pedantic`
--   All your files should end with a new line
--   A  `README.md`  file, at the root of the folder of the project is mandatory
--   Your code should use the  `Betty`  style. It will be checked using  [betty-style.pl](https://github.com/holbertonschool/Betty/blob/master/betty-style.pl "betty-style.pl")  and  [betty-doc.pl](https://github.com/holbertonschool/Betty/blob/master/betty-doc.pl "betty-doc.pl")
--   You are not allowed to use global variables
--   No more than 5 functions per file
--   In the following examples, the  `main.c`  files are shown as examples. You can use them to test your functions, but you don’t have to push them to your repo (if you do we won’t take them into account). We will use our own  `main.c`  files at compilation. Our  `main.c`  files might be different from the one shown in the examples
--   The prototypes of all your functions should be included in your header file called  `holberton.h`
--   Don’t forget to push your header file
--   All your header files should be include guarded
--   Authorized functions and macros:
-    -   `write`  (`man 2 write`)
-    -   `malloc`  (`man 3 malloc`)
-    -   `free`  (`man 3 free`)
-    -   `va_start`  (`man 3 va_start`)
-    -   `va_end`  (`man 3 va_end`)
-    -   `va_copy`  (`man 3 va_copy`)
-    -   `va_arg`  (`man 3 va_arg`)
--   Note that we will not provide the  `_putchar`  function for this project
+### 0. I'm not going anywhere. You can print that wherever you want to. I'm here and I'm a Spur for life
+#### Write a function that produces output according to a format.
+* Prototype: int /_printf(const char *format, ...);
+* Returns: the number of characters printed (excluding the null byte used to end output to strings)
+* write output to stdout, the standard output stream
+* format is a character string. The format string is composed of zero or more directives. See man 3 printf for more detail. You need to handle the following conversion specifiers:
+* * c
+* * s
+* * %
+* You don’t have to reproduce the buffer handling of the C library printf function
+* You don’t have to handle the flag characters
+* You don’t have to handle field width
+* You don’t have to handle precision
+* You don’t have to handle the length modifiers
+##### REPO: GitHub repository: printf
+#
+### 1. Education is when you read the fine print. Experience is what you get if you don't
+#### Write a function that prints numbers, followed by a new line.
+Handle the following conversion specifiers:
+* d
+* i
+* You don’t have to handle the flag characters
+* You don’t have to handle field width
+* You don’t have to handle precision
+* You don’t have to handle the length modifiers
+##### REPO: GitHub repository: printf
+#
+### 2. Just because it's in print doesn't mean it's the gospel
+#### Create a man page for your function.
+##### REPO: GitHub repository: printf
+##### File: man_3_printf
+#
+### 3. With a face like mine, I do better in print
+#### Handle the following custom conversion specifiers:
 
-## Future Todos
-- Use a local buffer of 1024 chars in order to call write as little as possible.
-- Handle the following flag characters for non-custom conversion specifiers:
-   - '+'
-   - space
-   - '#'
-- Handle the following length modifiers for non-custom conversion specifiers:
-     - l
-     - h
-   - Conversion specifiers to handle: d, i, u, o, x, X
-- Handle the field width for non-custom conversion specifiers.
-- Handle the precision for non-custom conversion specifiers.
-- Handle the 0 flag character for non-custom conversion specifiers.
-- Handle the - flag character for non-custom conversion specifiers.
+* b: the unsigned int argument is converted to binary
 
+##### REPO: GitHub repository: printf
+#
+### 4. What one has not experienced, one will never understand in print
+#### Handle the following conversion specifiers:
+* u
+* o
+* x
+* X
+* You don’t have to handle the flag characters
+* You don’t have to handle field width
+* You don’t have to handle precision
+* You don’t have to handle the length modifiers
+
+##### REPO: GitHub repository: printf
+#
+### 5. Nothing in fine print is ever good news
+#### Use a local buffer of 1024 chars in order to call write as little as possible.
+
+##### REPO: GitHub repository: printf
+#
+### 6. My weakness is wearing too much leopard print
+#### Handle the following custom conversion specifier:
+* S : prints the string.
+* Non printable characters "(0 < ASCII value < 32 or >= 127)" are printed this way: \x, followed by the ASCII code value in hexadecimal (upper case - always 2 characters)
+##### REPO: GitHub repository: printf
+#
+### 7. How is the world ruled and led to war? Diplomats lie to journalists and believe these lies when they see them in print
+#### Handle the following conversion specifier: p.
+* You don’t have to handle the flag characters
+* You don’t have to handle field width
+* You don’t have to handle precision
+* You don’t have to handle the length modifiers
+
+##### REPO: GitHub repository: printf
+#
+### 8. The big print gives and the small print takes away
+#### Handle the following flag characters for non-custom conversion specifiers:
+* \+
+* space
+* \#
+
+##### REPO: GitHub repository: printf
+#
+### 9. Sarcasm is lost in print
+#### Handle the following length modifiers for non-custom conversion specifiers:
+* l
+* h
+Conversion specifiers to handle: d, i, u, o, x, X
+
+##### REPO: GitHub repository: printf
+#
+### 10. Print some money and give it to us for the rain forests
+#### Handle the field width for non-custom conversion specifiers.
+
+##### REPO: GitHub repository: printf
+#
+### 11. The negative is the equivalent of the composer's score, and the print the performance
+#### Handle the precision for non-custom conversion specifiers.
+
+##### REPO: GitHub repository: printf
+#
+### 12. It's depressing when you're still around and your albums are out of print.
+#### Handle the 0 flag character for non-custom conversion specifiers.
+
+##### REPO: GitHub repository: printf
+#
+### 13. Every time that I wanted to give up, if I saw an interesting textile, print what ever, suddenly I would see a collection.
+#### Handle the - flag character for non-custom conversion specifiers.
+
+##### REPO: GitHub repository: printf
+#
+### 14. Print is the sharpest and the strongest weapon of our party.
+#### Handle the following custom conversion specifier:
+* r : prints the reversed string
+
+##### REPO: GitHub repository: printf
+#
+### 15. The flood of print has turned reading into a process of gulping rather than savoring 
+#### Handle the following custom conversion specifier:
+* R: prints the rot13'ed string
+
+##### REPO: GitHub repository: printf
+#
+### 16. *
+#### All the above options work well together.
+##### REPO:
+* GitHub repository: printf
+#
 ### Authors
 
-- **Tolera Degefa**
-- **Gifti Lellisa**
+*  - *Initial work* - [Tolera Degefa](https://github.com/todaycu)
+* - *Initial work* - [Gifti Lellisa ](https://github.com/)
+
+### Acknowledgments
+
+* Follow the framework
+* Hat tip to anyone whose code was used
+* Inspiration
+* etc
